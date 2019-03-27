@@ -1,14 +1,16 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>
-      Ionic Blank
+  <ion-navbar color="primary">
+    <ion-title text-center>
+      Artists from MusicDemons API
     </ion-title>
+    <ion-searchbar placeholder="Search Artist" (ionInput)="getArtist($event)"></ion-searchbar>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+    <ion-list>
+      <ion-item *ngFor="let artist of artists2" (click)="showSongs(artist.id, artist.name)">
+        {{artist.name}}
+      </ion-item>
+    </ion-list>
 </ion-content>
